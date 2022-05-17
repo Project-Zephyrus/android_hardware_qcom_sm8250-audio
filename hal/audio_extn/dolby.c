@@ -247,7 +247,8 @@ void send_ddp_endp_params(struct audio_device *adev,
             (usecase->stream.out->flags & AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD) &&
             ((usecase->stream.out->format == AUDIO_FORMAT_AC3) ||
              (usecase->stream.out->format == AUDIO_FORMAT_E_AC3) ||
-             (usecase->stream.out->format == AUDIO_FORMAT_E_AC3_JOC))) {
+             (usecase->stream.out->format == AUDIO_FORMAT_E_AC3_JOC) ||
+             (usecase->stream.out->format == AUDIO_FORMAT_AC4))) {
             send_ddp_endp_params_stream(usecase->stream.out, ddp_dev,
                                         dev_ch_cap, false /* set cache */);
         }
@@ -265,7 +266,8 @@ void audio_extn_dolby_send_ddp_endp_params(struct audio_device *adev)
             (usecase->stream.out->flags & AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD) &&
             ((usecase->stream.out->format == AUDIO_FORMAT_AC3) ||
              (usecase->stream.out->format == AUDIO_FORMAT_E_AC3) ||
-             (usecase->stream.out->format == AUDIO_FORMAT_E_AC3_JOC))) {
+             (usecase->stream.out->format == AUDIO_FORMAT_E_AC3_JOC) ||
+             (usecase->stream.out->format == AUDIO_FORMAT_AC4))) {
             /*
              * Use wfd /hdmi sink channel cap for dolby params if device is wfd
              * or hdmi. Otherwise use stereo configuration
